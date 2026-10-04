@@ -3,31 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#090909">
-<meta name="description" content="AI HUB - مرکز ابزارها و پرامپت‌های هوش مصنوعی">
-<title>AI HUB | مرکز هوش مصنوعی</title>
+
+<title>TECH HUB | مرکز تکنولوژی</title>
+
+<meta name="description" content="TECH HUB؛ اخبار، آموزش‌ها و مطالب تکنولوژی، موبایل، کامپیوتر، گیمینگ و برنامه‌نویسی">
 
 <style>
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
-}
-
-html{
-    scroll-behavior:smooth;
+    box-sizing:border-box;
 }
 
 :root{
     --bg:#070707;
-    --card:#101010;
+    --card:#111111;
     --card2:#151515;
-    --text:#fff;
-    --muted:#999;
-    --border:#252525;
-    --red:#ff2020;
-    --red2:#b90000;
-    --green:#25d366;
+    --text:#ffffff;
+    --muted:#999999;
+    --border:#292929;
+    --red:#ff1e1e;
+    --red-dark:#b50000;
+    --green:#20c970;
 }
 
 body{
@@ -35,38 +32,9 @@ body{
     background:var(--bg);
     color:var(--text);
     line-height:1.8;
-    transition:.2s;
 }
 
-body.light{
-    --bg:#f5f5f5;
-    --card:#fff;
-    --card2:#eee;
-    --text:#111;
-    --muted:#666;
-    --border:#ddd;
-}
-
-a{
-    color:inherit;
-    text-decoration:none;
-}
-
-button,
-input{
-    font-family:inherit;
-}
-
-button{
-    cursor:pointer;
-}
-
-.container{
-    width:min(1150px,92%);
-    margin:auto;
-}
-
-/* نوار بالا */
+/* HEADER */
 
 header{
     position:sticky;
@@ -74,100 +42,80 @@ header{
     z-index:1000;
     background:rgba(7,7,7,.96);
     border-bottom:1px solid var(--border);
+    backdrop-filter:blur(10px);
 }
 
-body.light header{
-    background:rgba(255,255,255,.96);
-}
-
-.nav{
-    min-height:70px;
+.navbar{
+    max-width:1200px;
+    margin:auto;
+    padding:16px 20px;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:20px;
 }
 
 .logo{
     font-size:25px;
-    font-weight:900;
-    color:var(--red);
-    white-space:nowrap;
+    font-weight:bold;
+    letter-spacing:1px;
 }
 
 .logo span{
-    color:var(--text);
+    color:var(--red);
 }
 
-.nav-links{
+nav{
     display:flex;
-    align-items:center;
-    gap:22px;
+    gap:24px;
 }
 
-.nav-links a{
-    color:var(--muted);
+nav a{
+    color:#ddd;
+    text-decoration:none;
     font-size:14px;
     transition:.2s;
 }
 
-.nav-links a:hover{
+nav a:hover{
     color:var(--red);
 }
 
-.theme-btn{
-    width:40px;
-    height:40px;
-    border-radius:10px;
-    border:1px solid var(--border);
-    background:var(--card);
-    color:var(--text);
-    font-size:18px;
-}
-
-/* منوی موبایل */
-
-.mobile-menu{
+.menu-btn{
     display:none;
-    width:40px;
-    height:40px;
-    border:1px solid var(--border);
-    background:var(--card);
-    color:var(--text);
-    border-radius:10px;
-    font-size:20px;
+    background:none;
+    border:0;
+    color:white;
+    font-size:27px;
+    cursor:pointer;
 }
 
-/* هیرو */
+/* HERO */
 
 .hero{
-    min-height:650px;
-    display:flex;
+    max-width:1200px;
+    margin:auto;
+    padding:80px 20px 60px;
+    display:grid;
+    grid-template-columns:1.4fr .6fr;
+    gap:40px;
     align-items:center;
-    text-align:center;
-    position:relative;
-    overflow:hidden;
-}
-
-.hero-content{
-    width:100%;
 }
 
 .badge{
     display:inline-block;
-    padding:7px 16px;
-    border:1px solid #591010;
-    color:#ff5555;
-    background:#160707;
+    background:#1b0909;
+    border:1px solid #4b1515;
+    color:#ff4545;
+    padding:7px 13px;
     border-radius:30px;
-    font-size:13px;
-    margin-bottom:22px;
+    font-size:12px;
+    margin-bottom:20px;
 }
 
 .hero h1{
-    font-size:clamp(40px,8vw,78px);
-    line-height:1.2;
-    margin-bottom:22px;
+    font-size:52px;
+    line-height:1.25;
+    margin-bottom:20px;
 }
 
 .hero h1 span{
@@ -175,313 +123,417 @@ body.light header{
 }
 
 .hero p{
-    max-width:700px;
-    margin:0 auto 30px;
     color:var(--muted);
     font-size:17px;
+    max-width:700px;
+    margin-bottom:30px;
 }
 
-.buttons{
+.hero-buttons{
     display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-wrap:wrap;
     gap:12px;
+    flex-wrap:wrap;
 }
 
 .btn{
-    border:1px solid var(--border);
-    border-radius:11px;
-    padding:12px 24px;
-    background:var(--card);
-    color:var(--text);
+    display:inline-block;
+    padding:13px 22px;
+    border-radius:10px;
+    text-decoration:none;
     font-weight:bold;
-    transition:.2s;
-}
-
-.btn:hover{
-    border-color:var(--red);
+    border:1px solid var(--border);
+    color:white;
+    background:#111;
 }
 
 .btn-red{
     background:var(--red);
     border-color:var(--red);
-    color:#fff;
 }
 
-.btn-red:hover{
-    background:#d90000;
+.btn:hover{
+    transform:translateY(-2px);
 }
 
-.btn-small{
-    padding:8px 13px;
-    font-size:12px;
+/* HERO CARD */
+
+.hero-card{
+    background:linear-gradient(145deg,#1a0909,#0c0c0c);
+    border:1px solid #401414;
+    border-radius:22px;
+    padding:28px;
+    text-align:center;
 }
 
-/* آمار */
+.hero-icon{
+    width:110px;
+    height:110px;
+    margin:0 auto 20px;
+    border-radius:25px;
+    background:#190707;
+    border:2px solid var(--red);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:50px;
+}
+
+.hero-card h3{
+    margin-bottom:8px;
+}
+
+.hero-card p{
+    font-size:13px;
+    margin:0;
+}
+
+/* STATS */
 
 .stats{
+    max-width:1200px;
+    margin:0 auto 50px;
+    padding:0 20px;
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:14px;
-    margin-top:45px;
+    gap:15px;
 }
 
 .stat{
     background:var(--card);
     border:1px solid var(--border);
-    border-radius:14px;
-    padding:18px;
+    padding:22px;
+    border-radius:15px;
+    text-align:center;
 }
 
 .stat strong{
     display:block;
     color:var(--red);
-    font-size:27px;
+    font-size:28px;
 }
 
-/* بخش‌ها */
+.stat span{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* SECTION */
 
 section{
-    padding:80px 0;
+    max-width:1200px;
+    margin:auto;
+    padding:60px 20px;
 }
 
 .section-title{
-    text-align:center;
-    margin-bottom:38px;
+    margin-bottom:30px;
+}
+
+.section-title small{
+    color:var(--red);
+    font-weight:bold;
 }
 
 .section-title h2{
-    font-size:34px;
-    margin-bottom:8px;
+    font-size:32px;
+    margin:5px 0;
 }
 
 .section-title p{
     color:var(--muted);
+    font-size:14px;
 }
 
-/* جستجو */
+/* SEARCH */
 
 .search-box{
-    max-width:750px;
-    margin:0 auto 25px;
-    position:relative;
+    margin-bottom:25px;
 }
 
 .search-box input{
     width:100%;
-    padding:16px 20px;
-    background:var(--card);
+    padding:16px;
+    background:#101010;
     border:1px solid var(--border);
-    color:var(--text);
-    border-radius:13px;
+    border-radius:12px;
+    color:white;
     outline:none;
-    font-size:15px;
+    font-size:14px;
 }
 
 .search-box input:focus{
     border-color:var(--red);
 }
 
-/* فیلتر */
+/* CATEGORIES */
 
-.filters{
+.categories{
     display:flex;
-    justify-content:center;
-    gap:8px;
+    gap:10px;
     flex-wrap:wrap;
     margin-bottom:30px;
 }
 
-.filter{
-    padding:8px 15px;
-    border-radius:30px;
+.category{
+    background:#111;
+    color:#ddd;
     border:1px solid var(--border);
-    background:var(--card);
-    color:var(--muted);
+    padding:9px 15px;
+    border-radius:30px;
+    cursor:pointer;
 }
 
-.filter.active,
-.filter:hover{
+.category.active,
+.category:hover{
     background:var(--red);
     border-color:var(--red);
-    color:#fff;
+    color:white;
 }
 
-/* کارت ابزارها */
+/* NEWS */
 
-.tools-grid{
+.news-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:17px;
+    gap:20px;
 }
 
-.tool-card{
+.news-card{
     background:var(--card);
     border:1px solid var(--border);
-    border-radius:16px;
-    padding:22px;
+    border-radius:17px;
+    overflow:hidden;
     transition:.2s;
 }
 
-.tool-card:hover{
-    border-color:var(--red);
-    transform:translateY(-3px);
+.news-card:hover{
+    transform:translateY(-4px);
+    border-color:#551515;
 }
 
-.tool-icon{
-    width:52px;
-    height:52px;
-    border-radius:13px;
-    background:#1a0707;
-    border:1px solid #421010;
+.news-image{
+    height:170px;
+    background:linear-gradient(135deg,#280808,#101010);
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:25px;
-    margin-bottom:15px;
+    font-size:55px;
 }
 
-.tool-card h3{
-    margin-bottom:7px;
-}
-
-.tool-card p{
-    color:var(--muted);
-    font-size:13px;
-    min-height:58px;
-}
-
-.tool-footer{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:8px;
-    margin-top:17px;
+.news-content{
+    padding:20px;
 }
 
 .tag{
-    color:#ff5555;
+    display:inline-block;
+    color:#ff4545;
+    background:#220909;
+    padding:4px 9px;
+    border-radius:20px;
     font-size:11px;
+    margin-bottom:10px;
 }
 
-/* پرامپت */
-
-.prompt-section{
-    background:#0b0b0b;
+.news-card h3{
+    font-size:17px;
+    margin-bottom:10px;
 }
 
-body.light .prompt-section{
-    background:#ededed;
+.news-card p{
+    color:var(--muted);
+    font-size:13px;
 }
 
-.prompt-grid{
+.read-more{
+    display:inline-block;
+    color:var(--red);
+    margin-top:15px;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:bold;
+}
+
+/* TOPICS */
+
+.topic-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.topic{
+    background:var(--card);
+    border:1px solid var(--border);
+    padding:25px 18px;
+    border-radius:15px;
+    text-align:center;
+}
+
+.topic-icon{
+    font-size:35px;
+    margin-bottom:10px;
+}
+
+.topic h3{
+    font-size:16px;
+    margin-bottom:5px;
+}
+
+.topic p{
+    color:var(--muted);
+    font-size:12px;
+}
+
+/* FEATURED */
+
+.featured{
+    background:linear-gradient(135deg,#180707,#0c0c0c);
+    border:1px solid #401313;
+    border-radius:20px;
+    padding:35px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+    align-items:center;
+}
+
+.featured h2{
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+.featured p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+.feature-list{
+    list-style:none;
+}
+
+.feature-list li{
+    padding:10px 0;
+    border-bottom:1px solid #272727;
+    color:#ddd;
+}
+
+.feature-list li::before{
+    content:"✓";
+    color:var(--red);
+    margin-left:8px;
+}
+
+/* GUIDES */
+
+.guide-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:18px;
 }
 
-.prompt-card{
+.guide{
     background:var(--card);
     border:1px solid var(--border);
-    border-radius:16px;
+    border-radius:15px;
     padding:22px;
 }
 
-.prompt-card h3{
-    margin-bottom:12px;
-}
-
-.prompt-text{
-    background:#080808;
-    border:1px solid #222;
-    border-radius:10px;
-    padding:15px;
-    color:#bbb;
+.guide-number{
+    color:var(--red);
     font-size:13px;
-    direction:ltr;
-    text-align:left;
-    margin-bottom:15px;
+    font-weight:bold;
 }
 
-body.light .prompt-text{
-    background:#f1f1f1;
-    color:#444;
-    border-color:#ddd;
+.guide h3{
+    margin:5px 0;
 }
 
-/* قابلیت‌ها */
-
-.features{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:17px;
-}
-
-.feature{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:16px;
-    padding:25px;
-}
-
-.feature-icon{
-    font-size:30px;
-    margin-bottom:10px;
-}
-
-.feature p{
+.guide p{
     color:var(--muted);
     font-size:13px;
 }
 
-/* درباره */
+/* TERMINAL */
+
+.terminal{
+    background:#050505;
+    border:1px solid #292929;
+    border-radius:15px;
+    overflow:hidden;
+}
+
+.terminal-head{
+    background:#151515;
+    padding:12px 15px;
+    color:#aaa;
+    font-size:12px;
+}
+
+.terminal-body{
+    padding:22px;
+    color:#26e879;
+    font-family:monospace;
+    direction:ltr;
+    text-align:left;
+    font-size:13px;
+    overflow:auto;
+}
+
+.terminal-body span{
+    color:#fff;
+}
+
+/* ABOUT */
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
 
 .about-box{
-    max-width:900px;
-    margin:auto;
-    text-align:center;
     background:var(--card);
     border:1px solid var(--border);
     border-radius:18px;
-    padding:35px;
+    padding:30px;
+}
+
+.about-box h3{
+    margin-bottom:12px;
 }
 
 .about-box p{
     color:var(--muted);
+    font-size:14px;
 }
 
 /* FAQ */
 
 .faq{
-    max-width:850px;
-    margin:auto;
-}
-
-.faq-item{
-    background:var(--card);
     border:1px solid var(--border);
-    border-radius:12px;
-    margin-bottom:10px;
+    border-radius:15px;
     overflow:hidden;
 }
 
+.faq-item{
+    border-bottom:1px solid var(--border);
+}
+
+.faq-item:last-child{
+    border-bottom:0;
+}
+
 .faq-question{
-    width:100%;
-    background:none;
-    color:var(--text);
-    border:0;
-    padding:17px;
-    text-align:right;
-    font-size:14px;
+    padding:18px;
+    cursor:pointer;
     display:flex;
     justify-content:space-between;
-    align-items:center;
+    font-weight:bold;
 }
 
 .faq-answer{
     display:none;
-    padding:0 17px 17px;
+    padding:0 18px 18px;
     color:var(--muted);
     font-size:13px;
 }
@@ -490,116 +542,113 @@ body.light .prompt-text{
     display:block;
 }
 
-/* تماس */
+.faq-item.open .faq-question{
+    color:var(--red);
+}
 
-.contact-box{
-    max-width:750px;
-    margin:auto;
+/* CONTACT */
+
+.contact{
     text-align:center;
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:18px;
-    padding:35px;
+    background:linear-gradient(135deg,#160707,#0d0d0d);
+    border:1px solid #3d1111;
+    border-radius:20px;
+    padding:50px 20px;
 }
 
-.contact-box p{
+.contact h2{
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.contact p{
     color:var(--muted);
-    margin-bottom:20px;
+    margin-bottom:25px;
 }
 
-/* اعلان */
-
-.toast{
-    position:fixed;
-    left:20px;
-    bottom:20px;
-    background:#151515;
-    border:1px solid #333;
-    color:#fff;
-    padding:13px 18px;
-    border-radius:10px;
-    opacity:0;
-    pointer-events:none;
-    transform:translateY(10px);
-    transition:.2s;
-    z-index:9999;
-    font-size:13px;
-}
-
-.toast.show{
-    opacity:1;
-    transform:translateY(0);
-}
-
-/* فوتر */
+/* FOOTER */
 
 footer{
     border-top:1px solid var(--border);
-    padding:30px 0;
+    padding:35px 20px;
     text-align:center;
-    color:var(--muted);
-    font-size:13px;
+    color:#777;
+    font-size:12px;
 }
 
 .footer-logo{
-    font-size:23px;
+    font-size:22px;
+    color:white;
     font-weight:bold;
-    color:var(--red);
     margin-bottom:8px;
 }
 
-/* موبایل */
+.footer-logo span{
+    color:var(--red);
+}
 
-@media(max-width:850px){
+/* MOBILE */
 
-    .nav-links{
-        display:none;
+@media(max-width:900px){
+
+    .hero{
+        grid-template-columns:1fr;
+        padding-top:55px;
     }
 
-    .mobile-menu{
-        display:block;
-    }
-
-    .nav.mobile-open .nav-links{
-        display:flex;
-        position:absolute;
-        top:70px;
-        right:0;
-        left:0;
-        padding:15px 4%;
-        background:var(--bg);
-        border-bottom:1px solid var(--border);
-        flex-direction:column;
-        align-items:stretch;
-        gap:0;
-    }
-
-    .nav.mobile-open .nav-links a{
-        padding:12px;
-        border-bottom:1px solid var(--border);
+    .hero h1{
+        font-size:40px;
     }
 
     .stats{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .tools-grid{
+    .news-grid{
         grid-template-columns:1fr 1fr;
     }
 
-    .features{
+    .topic-grid{
         grid-template-columns:1fr 1fr;
+    }
+
+    .featured{
+        grid-template-columns:1fr;
+    }
+
+    .about{
+        grid-template-columns:1fr;
     }
 }
 
-@media(max-width:600px){
+@media(max-width:650px){
+
+    nav{
+        display:none;
+        position:absolute;
+        top:67px;
+        right:0;
+        left:0;
+        background:#090909;
+        border-bottom:1px solid var(--border);
+        padding:20px;
+        flex-direction:column;
+    }
+
+    nav.show{
+        display:flex;
+    }
+
+    .menu-btn{
+        display:block;
+    }
 
     .hero{
-        min-height:600px;
+        padding:45px 15px;
     }
 
     .hero h1{
-        font-size:43px;
+        font-size:34px;
     }
 
     .hero p{
@@ -607,29 +656,38 @@ footer{
     }
 
     section{
-        padding:60px 0;
+        padding:45px 15px;
+    }
+
+    .stats{
+        padding:0 15px;
+    }
+
+    .news-grid{
+        grid-template-columns:1fr;
+    }
+
+    .topic-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .guide-grid{
+        grid-template-columns:1fr;
     }
 
     .section-title h2{
-        font-size:28px;
+        font-size:27px;
     }
+}
 
-    .tools-grid,
-    .features,
-    .prompt-grid{
+@media(max-width:400px){
+
+    .topic-grid{
         grid-template-columns:1fr;
     }
 
     .stats{
         grid-template-columns:1fr 1fr;
-    }
-
-    .stat{
-        padding:14px;
-    }
-
-    .stat strong{
-        font-size:23px;
     }
 }
 </style>
@@ -638,519 +696,501 @@ footer{
 <body>
 
 <header>
-<div class="container nav" id="navbar">
 
-    <a href="#home" class="logo">
-        AI <span>HUB</span>
-    </a>
+<div class="navbar">
 
-    <nav class="nav-links">
-        <a href="#home">خانه</a>
-        <a href="#tools">ابزارها</a>
-        <a href="#prompts">پرامپت‌ها</a>
-        <a href="#features">امکانات</a>
-        <a href="#faq">سؤالات</a>
-        <a href="#contact">ارتباط</a>
-    </nav>
+<div class="logo">
+TECH <span>HUB</span>
+</div>
 
-    <div style="display:flex;gap:8px;">
-        <button class="theme-btn" id="themeBtn" onclick="toggleTheme()">☀️</button>
-        <button class="mobile-menu" onclick="toggleMenu()">☰</button>
-    </div>
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+<nav id="nav">
+<a href="#home">خانه</a>
+<a href="#news">اخبار</a>
+<a href="#topics">دسته‌بندی</a>
+<a href="#guides">آموزش</a>
+<a href="#about">درباره ما</a>
+</nav>
 
 </div>
+
 </header>
 
 
 <main>
 
-<!-- خانه -->
+<!-- HERO -->
 
-<section class="hero" id="home">
+<div class="hero" id="home">
 
-<div class="container hero-content">
+<div>
 
-    <div class="badge">
-        🚀 مرکز ابزارها و ایده‌های هوش مصنوعی
-    </div>
-
-    <h1>
-        آینده با <span>هوش مصنوعی</span><br>
-        از اینجا شروع می‌شود
-    </h1>
-
-    <p>
-        ابزارهای کاربردی، پرامپت‌های آماده، ایده‌های خلاقانه
-        و منابع هوش مصنوعی را در یک محیط ساده و سریع پیدا کن.
-    </p>
-
-    <div class="buttons">
-        <a href="#tools" class="btn btn-red">
-            🤖 مشاهده ابزارها
-        </a>
-
-        <a href="#prompts" class="btn">
-            ✨ پرامپت‌ها
-        </a>
-    </div>
-
-    <div class="stats">
-
-        <div class="stat">
-            <strong>20+</strong>
-            ابزار و سرویس
-        </div>
-
-        <div class="stat">
-            <strong>50+</strong>
-            ایده و پرامپت
-        </div>
-
-        <div class="stat">
-            <strong>100%</strong>
-            رایگان برای شروع
-        </div>
-
-        <div class="stat">
-            <strong>24/7</strong>
-            دسترسی آنلاین
-        </div>
-
-    </div>
-
+<div class="badge">
+مرکز تکنولوژی و دنیای دیجیتال
 </div>
 
-</section>
+<h1>
+دنیای تکنولوژی را
+<span>بهتر بشناس</span>
+</h1>
 
+<p>
+به TECH HUB خوش آمدید؛ جایی برای دنبال کردن اخبار تکنولوژی،
+آموزش‌های کاربردی، دنیای گیمینگ، موبایل، کامپیوتر، امنیت،
+برنامه‌نویسی و جدیدترین اتفاقات دنیای دیجیتال.
+</p>
 
-<!-- ابزارها -->
+<div class="hero-buttons">
 
-<section id="tools">
+<a href="#news" class="btn btn-red">
+مشاهده اخبار
+</a>
 
-<div class="container">
+<a href="#guides" class="btn">
+آموزش‌ها
+</a>
 
-<div class="section-title">
-    <h2>🤖 ابزارهای هوش مصنوعی</h2>
-    <p>ابزار موردنظرت را جست‌وجو و پیدا کن</p>
 </div>
-
-<div class="search-box">
-    <input
-        id="searchInput"
-        type="search"
-        placeholder="🔍 جست‌وجوی ابزار... مثلا تصویر، ویدیو، متن"
-        oninput="searchTools()"
-    >
-</div>
-
-<div class="filters">
-
-    <button class="filter active" onclick="filterTools('all',this)">
-        همه
-    </button>
-
-    <button class="filter" onclick="filterTools('image',this)">
-        🎨 تصویر
-    </button>
-
-    <button class="filter" onclick="filterTools('video',this)">
-        🎬 ویدیو
-    </button>
-
-    <button class="filter" onclick="filterTools('text',this)">
-        ✍️ متن
-    </button>
-
-    <button class="filter" onclick="filterTools('audio',this)">
-        🎙️ صدا
-    </button>
 
 </div>
 
 
-<div class="tools-grid" id="toolsGrid">
+<div class="hero-card">
 
-    <article class="tool-card" data-category="text" data-name="chatgpt متن هوش مصنوعی">
-
-        <div class="tool-icon">🤖</div>
-
-        <h3>ChatGPT</h3>
-
-        <p>
-            برای نوشتن، ایده‌پردازی، یادگیری، برنامه‌نویسی
-            و کارهای مختلف با هوش مصنوعی.
-        </p>
-
-        <div class="tool-footer">
-            <span class="tag">متن و AI</span>
-
-            <a class="btn btn-small btn-red"
-               href="https://chatgpt.com/"
-               target="_blank">
-                ورود
-            </a>
-        </div>
-
-    </article>
-
-
-    <article class="tool-card" data-category="image" data-name="تصویر میدجرنی midjourney">
-
-        <div class="tool-icon">🎨</div>
-
-        <h3>Midjourney</h3>
-
-        <p>
-            تولید تصاویر خلاقانه و هنری با استفاده از
-            دستورات متنی.
-        </p>
-
-        <div class="tool-footer">
-            <span class="tag">تصویر</span>
-
-            <a class="btn btn-small btn-red"
-               href="https://www.midjourney.com/"
-               target="_blank">
-                ورود
-            </a>
-        </div>
-
-    </article>
-
-
-    <article class="tool-card" data-category="image" data-name="تصویر adobe firefly">
-
-        <div class="tool-icon">🔥</div>
-
-        <h3>Adobe Firefly</h3>
-
-        <p>
-            مجموعه ابزارهای هوش مصنوعی Adobe برای
-            ساخت و ویرایش محتوای تصویری.
-        </p>
-
-        <div class="tool-footer">
-            <span class="tag">تصویر</span>
-
-            <a class="btn btn-small btn-red"
-               href="https://firefly.adobe.com/"
-               target="_blank">
-                ورود
-            </a>
-        </div>
-
-    </article>
-
-
-    <article class="tool-card" data-category="video" data-name="ویدیو runway">
-
-        <div class="tool-icon">🎬</div>
-
-        <h3>Runway</h3>
-
-        <p>
-            ابزارهای هوش مصنوعی برای ساخت ویدیو و
-            تولید محتوای تصویری.
-        </p>
-
-        <div class="tool-footer">
-            <span class="tag">ویدیو</span>
-
-            <a class="btn btn-small btn-red"
-               href="https://runwayml.com/"
-               target="_blank">
-                ورود
-            </a>
-        </div>
-
-    </article>
-
-
-    <article class="tool-card" data-category="video" data-name="ویدیو higgsfield">
-
-        <div class="tool-icon">🎥</div>
-
-        <h3>Higgsfield</h3>
-
-        <p>
-            ساخت ویدیوهای خلاقانه و محتوای تصویری
-            با ابزارهای هوش مصنوعی.
-        </p>
-
-        <div class="tool-footer">
-            <span class="tag">ویدیو</span>
-
-            <a class="btn btn-small btn-red"
-               href="https://higgsfield.ai/"
-               target="_blank">
-                ورود
-            </a>
-        </div>
-
-    </article>
-
-
-    <article class="tool-card" data-category="audio" data-name="صدا elevenlabs">
-
-        <div class="tool-icon">🎙️</div>
-
-        <h3>ElevenLabs</h3>
-
-        <p>
-            ابزارهای هوش مصنوعی برای تولید و پردازش
-            صدا و گفتار.
-        </p>
-
-        <div class="tool-footer">
-            <span class="tag">صدا</span>
-
-            <a class="btn btn-small btn-red"
-               href="https://elevenlabs.io/"
-               target="_blank">
-                ورود
-            </a>
-        </div>
-
-    </article>
-
-
-    <article class="tool-card" data-category="text" data-name="متن claude">
-
-        <div class="tool-icon">🧠</div>
-
-        <h3>Claude</h3>
-
-        <p>
-            دستیار هوش مصنوعی برای نوشتن، تحلیل،
-            یادگیری و کار با متن.
-        </p>
-
-        <div class="tool-footer">
-            <span class="tag">متن</span>
-
-            <a class="btn btn-small btn-red"
-               href="https://claude.ai/"
-               target="_blank">
-                ورود
-            </a>
-        </div>
-
-    </article>
-
-
-    <article class="tool-card" data-category="image" data-name="تصویر canva">
-
-        <div class="tool-icon">🖼️</div>
-
-        <h3>Canva</h3>
-
-        <p>
-            طراحی گرافیکی و تولید محتوای تصویری
-            با امکانات هوش مصنوعی.
-        </p>
-
-        <div class="tool-footer">
-            <span class="tag">طراحی</span>
-
-            <a class="btn btn-small btn-red"
-               href="https://www.canva.com/"
-               target="_blank">
-                ورود
-            </a>
-        </div>
-
-    </article>
-
-
-    <article class="tool-card" data-category="text" data-name="متن gemini گوگل">
-
-        <div class="tool-icon">✨</div>
-
-        <h3>Google Gemini</h3>
-
-        <p>
-            دستیار هوش مصنوعی گوگل برای پرسش،
-            ایده‌پردازی و کارهای مختلف.
-        </p>
-
-        <div class="tool-footer">
-            <span class="tag">AI</span>
-
-            <a class="btn btn-small btn-red"
-               href="https://gemini.google.com/"
-               target="_blank">
-                ورود
-            </a>
-        </div>
-
-    </article>
-
+<div class="hero-icon">
+⚡
 </div>
 
-<p id="noResults"
-style="display:none;text-align:center;color:var(--muted);margin-top:25px;">
-    😕 ابزار موردنظر پیدا نشد.
+<h3>
+TECH HUB
+</h3>
+
+<p>
+تکنولوژی ساده‌تر، سریع‌تر و جذاب‌تر
 </p>
 
 </div>
 
-</section>
+</div>
 
 
-<!-- پرامپت‌ها -->
+<!-- STATS -->
 
-<section id="prompts" class="prompt-section">
+<div class="stats">
 
-<div class="container">
+<div class="stat">
+<strong>24/7</strong>
+<span>دسترسی به محتوا</span>
+</div>
+
+<div class="stat">
+<strong>+50</strong>
+<span>موضوع تکنولوژی</span>
+</div>
+
+<div class="stat">
+<strong>100%</strong>
+<span>محتوای کاربردی</span>
+</div>
+
+<div class="stat">
+<strong>⚡</strong>
+<span>آپدیت مستمر</span>
+</div>
+
+</div>
+
+
+<!-- NEWS -->
+
+<section id="news">
 
 <div class="section-title">
-    <h2>✨ پرامپت‌های آماده</h2>
-    <p>پرامپت را کپی کن و در ابزار هوش مصنوعی استفاده کن</p>
+
+<small>آخرین مطالب</small>
+
+<h2>
+اخبار و مطالب تکنولوژی
+</h2>
+
+<p>
+مهم‌ترین موضوعات دنیای فناوری را اینجا دنبال کنید.
+</p>
+
+</div>
+
+
+<div class="search-box">
+
+<input
+type="text"
+id="search"
+placeholder="جستجو بین مطالب تکنولوژی..."
+onkeyup="searchNews()">
+
 </div>
 
 
-<div class="prompt-grid">
+<div class="categories">
 
-    <div class="prompt-card">
+<button class="category active" onclick="filterNews('all',this)">
+همه
+</button>
 
-        <h3>🎨 پرامپت تصویر حرفه‌ای</h3>
+<button class="category" onclick="filterNews('mobile',this)">
+📱 موبایل
+</button>
 
-        <div class="prompt-text" id="prompt1">
-Create a highly detailed cinematic portrait,
-dramatic lighting, realistic skin texture,
-professional photography, 4K, sharp focus,
-dark background, cinematic composition.
-        </div>
+<button class="category" onclick="filterNews('gaming',this)">
+🎮 گیمینگ
+</button>
 
-        <button class="btn btn-red btn-small"
-                onclick="copyPrompt('prompt1')">
-            📋 کپی پرامپت
-        </button>
+<button class="category" onclick="filterNews('computer',this)">
+💻 کامپیوتر
+</button>
 
-    </div>
-
-
-    <div class="prompt-card">
-
-        <h3>🎬 پرامپت ویدیویی</h3>
-
-        <div class="prompt-text" id="prompt2">
-Create a cinematic 10-second video,
-smooth camera movement, realistic lighting,
-high detail, natural motion, professional
-composition, realistic environment.
-        </div>
-
-        <button class="btn btn-red btn-small"
-                onclick="copyPrompt('prompt2')">
-            📋 کپی پرامپت
-        </button>
-
-    </div>
-
-
-    <div class="prompt-card">
-
-        <h3>📝 پرامپت تولید محتوا</h3>
-
-        <div class="prompt-text" id="prompt3">
-Create a short social media post about artificial
-intelligence. Make it engaging, simple,
-modern and suitable for teenagers.
-        </div>
-
-        <button class="btn btn-red btn-small"
-                onclick="copyPrompt('prompt3')">
-            📋 کپی پرامپت
-        </button>
-
-    </div>
-
-
-    <div class="prompt-card">
-
-        <h3>💡 پرامپت ایده‌پردازی</h3>
-
-        <div class="prompt-text" id="prompt4">
-Give me 20 creative content ideas about AI,
-technology and gaming. Make each idea unique,
-short and suitable for social media videos.
-        </div>
-
-        <button class="btn btn-red btn-small"
-                onclick="copyPrompt('prompt4')">
-            📋 کپی پرامپت
-        </button>
-
-    </div>
+<button class="category" onclick="filterNews('security',this)">
+🔐 امنیت
+</button>
 
 </div>
+
+
+<div class="news-grid" id="newsGrid">
+
+
+<article class="news-card" data-category="mobile">
+
+<div class="news-image">
+📱
+</div>
+
+<div class="news-content">
+
+<span class="tag">
+موبایل
+</span>
+
+<h3>
+آینده گوشی‌های هوشمند چگونه خواهد بود؟
+</h3>
+
+<p>
+بررسی روندهای جدید صنعت موبایل و فناوری‌هایی که می‌توانند آینده گوشی‌های هوشمند را تغییر دهند.
+</p>
+
+<a href="#" class="read-more">
+ادامه مطلب ←
+</a>
+
+</div>
+
+</article>
+
+
+<article class="news-card" data-category="gaming">
+
+<div class="news-image">
+🎮
+</div>
+
+<div class="news-content">
+
+<span class="tag">
+گیمینگ
+</span>
+
+<h3>
+نسل جدید بازی‌های موبایلی
+</h3>
+
+<p>
+نگاهی به پیشرفت گرافیک، موتورهای بازی‌سازی و تجربه بازی روی گوشی‌های جدید.
+</p>
+
+<a href="#" class="read-more">
+ادامه مطلب ←
+</a>
+
+</div>
+
+</article>
+
+
+<article class="news-card" data-category="computer">
+
+<div class="news-image">
+💻
+</div>
+
+<div class="news-content">
+
+<span class="tag">
+کامپیوتر
+</span>
+
+<h3>
+آینده کامپیوترهای شخصی
+</h3>
+
+<p>
+از پردازنده‌های جدید تا سیستم‌عامل‌ها؛ دنیای کامپیوتر با سرعت زیادی در حال تغییر است.
+</p>
+
+<a href="#" class="read-more">
+ادامه مطلب ←
+</a>
+
+</div>
+
+</article>
+
+
+<article class="news-card" data-category="security">
+
+<div class="news-image">
+🔐
+</div>
+
+<div class="news-content">
+
+<span class="tag">
+امنیت
+</span>
+
+<h3>
+چطور امنیت حساب‌های خود را بیشتر کنیم؟
+</h3>
+
+<p>
+چند نکته ساده برای افزایش امنیت حساب‌ها و محافظت بهتر از اطلاعات شخصی.
+</p>
+
+<a href="#" class="read-more">
+ادامه مطلب ←
+</a>
+
+</div>
+
+</article>
+
+
+<article class="news-card" data-category="mobile">
+
+<div class="news-image">
+🌐
+</div>
+
+<div class="news-content">
+
+<span class="tag">
+اینترنت
+</span>
+
+<h3>
+اینترنت چگونه هر سال سریع‌تر می‌شود؟
+</h3>
+
+<p>
+تکنولوژی‌های ارتباطی جدید چه تغییری در سرعت و کیفیت اینترنت ایجاد می‌کنند؟
+</p>
+
+<a href="#" class="read-more">
+ادامه مطلب ←
+</a>
+
+</div>
+
+</article>
+
+
+<article class="news-card" data-category="gaming">
+
+<div class="news-image">
+🕹️
+</div>
+
+<div class="news-content">
+
+<span class="tag">
+گیم
+</span>
+
+<h3>
+چرا بازی‌های موبایلی سنگین‌تر شده‌اند؟
+</h3>
+
+<p>
+بررسی گرافیک، فیزیک، نقشه‌های بزرگ و عواملی که باعث افزایش حجم بازی‌ها می‌شوند.
+</p>
+
+<a href="#" class="read-more">
+ادامه مطلب ←
+</a>
+
+</div>
+
+</article>
 
 </div>
 
 </section>
 
 
-<!-- امکانات -->
+<!-- TOPICS -->
 
-<section id="features">
-
-<div class="container">
+<section id="topics">
 
 <div class="section-title">
-    <h2>⚡ امکانات AI HUB</h2>
-    <p>ساخته شده برای استفاده سریع و ساده</p>
+
+<small>موضوعات</small>
+
+<h2>
+دسته‌بندی‌های TECH HUB
+</h2>
+
+<p>
+موضوع مورد علاقه خود را انتخاب کنید.
+</p>
+
 </div>
 
-<div class="features">
 
-    <div class="feature">
-        <div class="feature-icon">🔎</div>
-        <h3>جست‌وجوی سریع</h3>
-        <p>
-            ابزارهای مختلف را با جست‌وجوی سریع پیدا کن.
-        </p>
-    </div>
+<div class="topic-grid">
 
-    <div class="feature">
-        <div class="feature-icon">📱</div>
-        <h3>کاملاً موبایلی</h3>
-        <p>
-            سایت برای صفحه گوشی و کامپیوتر طراحی شده است.
-        </p>
-    </div>
+<div class="topic">
 
-    <div class="feature">
-        <div class="feature-icon">⚡</div>
-        <h3>سبک و سریع</h3>
-        <p>
-            از افکت‌های سنگین و کتابخانه‌های غیرضروری استفاده نشده.
-        </p>
-    </div>
+<div class="topic-icon">
+📱
+</div>
 
-    <div class="feature">
-        <div class="feature-icon">🌙</div>
-        <h3>حالت تاریک و روشن</h3>
-        <p>
-            ظاهر سایت را با یک دکمه تغییر بده.
-        </p>
-    </div>
+<h3>
+موبایل
+</h3>
 
-    <div class="feature">
-        <div class="feature-icon">📋</div>
-        <h3>کپی پرامپت</h3>
-        <p>
-            پرامپت‌ها را با یک کلیک کپی کن.
-        </p>
-    </div>
+<p>
+گوشی، اپلیکیشن و سیستم‌عامل
+</p>
 
-    <div class="feature">
-        <div class="feature-icon">🔗</div>
-        <h3>دسترسی مستقیم</h3>
-        <p>
-            با دکمه ورود مستقیماً به ابزار موردنظر برو.
-        </p>
-    </div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-icon">
+💻
+</div>
+
+<h3>
+کامپیوتر
+</h3>
+
+<p>
+ویندوز، سخت‌افزار و نرم‌افزار
+</p>
+
+</div>
+
+
+<div class="topic">
+
+<div class="topic-icon">
+🎮
+</div>
+
+<h3>
+گیمینگ
+</h3>
+
+<p>
+بازی، کنسول و تجهیزات گیم
+</p>
+
+</div>
+
+
+<div class="topic">
+
+<div class="topic-icon">
+🔐
+</div>
+
+<h3>
+امنیت
+</h3>
+
+<p>
+امنیت دیجیتال و حریم خصوصی
+</p>
+
+</div>
+
+
+<div class="topic">
+
+<div class="topic-icon">
+🌐
+</div>
+
+<h3>
+اینترنت
+</h3>
+
+<p>
+شبکه، مرورگر و سرویس‌های آنلاین
+</p>
+
+</div>
+
+
+<div class="topic">
+
+<div class="topic-icon">
+🧑‍💻
+</div>
+
+<h3>
+برنامه‌نویسی
+</h3>
+
+<p>
+کدنویسی و توسعه نرم‌افزار
+</p>
+
+</div>
+
+
+<div class="topic">
+
+<div class="topic-icon">
+📡
+</div>
+
+<h3>
+فناوری
+</h3>
+
+<p>
+گجت‌ها و تکنولوژی‌های جدید
+</p>
+
+</div>
+
+
+<div class="topic">
+
+<div class="topic-icon">
+🛠️
+</div>
+
+<h3>
+آموزش
+</h3>
+
+<p>
+آموزش‌های کاربردی تکنولوژی
+</p>
 
 </div>
 
@@ -1159,31 +1199,253 @@ short and suitable for social media videos.
 </section>
 
 
-<!-- درباره -->
+<!-- FEATURED -->
 
 <section>
 
-<div class="container">
+<div class="featured">
 
-<div class="section-title">
-    <h2>🧠 درباره AI HUB</h2>
-    <p>یک پروژه برای دنیای هوش مصنوعی</p>
+<div>
+
+<div class="badge">
+ویژه TECH HUB
 </div>
 
-<div class="about-box">
+<h2>
+تکنولوژی را فقط دنبال نکن؛ یاد بگیر.
+</h2>
 
 <p>
-AI HUB یک پروژه شخصی برای معرفی ابزارهای هوش مصنوعی،
-پرامپت‌ها و ایده‌های خلاقانه است.
-هدف این سایت این است که کاربران بتوانند ابزارهای مختلف
-را سریع‌تر پیدا کنند و از آن‌ها برای یادگیری و تولید محتوا
-استفاده کنند.
+هدف TECH HUB این است که مطالب پیچیده تکنولوژی را
+به زبان ساده و قابل فهم ارائه کند تا هر کسی بتواند
+از دنیای دیجیتال بهتر استفاده کند.
 </p>
+
+</div>
+
+
+<ul class="feature-list">
+
+<li>
+آموزش‌های ساده و کاربردی
+</li>
+
+<li>
+مطالب مخصوص موبایل و کامپیوتر
+</li>
+
+<li>
+محتوای گیمینگ
+</li>
+
+<li>
+آموزش امنیت دیجیتال
+</li>
+
+<li>
+آموزش‌های Termux و برنامه‌نویسی
+</li>
+
+</ul>
+
+</div>
+
+</section>
+
+
+<!-- GUIDES -->
+
+<section id="guides">
+
+<div class="section-title">
+
+<small>آموزش</small>
+
+<h2>
+آموزش‌های کاربردی
+</h2>
+
+<p>
+چند نمونه از آموزش‌هایی که می‌توان در TECH HUB منتشر کرد.
+</p>
+
+</div>
+
+
+<div class="guide-grid">
+
+<div class="guide">
+
+<div class="guide-number">
+آموزش 01
+</div>
+
+<h3>
+چطور Termux را آماده کنیم؟
+</h3>
+
+<p>
+نصب بسته‌های ضروری، ساخت پوشه‌ها و شروع کار با محیط Termux.
+</p>
+
+</div>
+
+
+<div class="guide">
+
+<div class="guide-number">
+آموزش 02
+</div>
+
+<h3>
+چطور فضای گوشی را مدیریت کنیم؟
+</h3>
+
+<p>
+روش‌های ساده برای پیدا کردن فایل‌های اضافی و مدیریت بهتر فضای ذخیره‌سازی.
+</p>
+
+</div>
+
+
+<div class="guide">
+
+<div class="guide-number">
+آموزش 03
+</div>
+
+<h3>
+چطور حساب‌های آنلاین را امن‌تر کنیم؟
+</h3>
+
+<p>
+فعال کردن قابلیت‌های امنیتی و استفاده صحیح از رمزهای عبور.
+</p>
+
+</div>
+
+
+<div class="guide">
+
+<div class="guide-number">
+آموزش 04
+</div>
+
+<h3>
+شروع برنامه‌نویسی با پایتون
+</h3>
+
+<p>
+آشنایی با مفاهیم اولیه پایتون و اجرای اولین برنامه.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- TERMINAL -->
+
+<section>
+
+<div class="section-title">
+
+<small>TECH LAB</small>
+
+<h2>
+دنیای برنامه‌نویسی
+</h2>
+
+<p>
+یک نمونه ساده از محیط ترمینال برای بخش برنامه‌نویسی سایت.
+</p>
+
+</div>
+
+
+<div class="terminal">
+
+<div class="terminal-head">
+TECH HUB — Terminal
+</div>
+
+<div class="terminal-body">
+
+<span>$</span> pkg update
 
 <br>
 
+<span>$</span> pkg upgrade
+
+<br>
+
+<span>$</span> pkg install python
+
+<br>
+
+<span>$</span> python --version
+
+<br>
+
+<span>$</span> echo "Welcome to TECH HUB"
+
+<br><br>
+
+Welcome to TECH HUB ⚡
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="section-title">
+
+<small>درباره سایت</small>
+
+<h2>
+TECH HUB چیست؟
+</h2>
+
+</div>
+
+
+<div class="about">
+
+<div class="about-box">
+
+<h3>
+🚀 هدف ما
+</h3>
+
 <p>
-این سایت به‌صورت ساده، سریع و مناسب موبایل طراحی شده است.
+TECH HUB یک پروژه تکنولوژی با هدف جمع‌آوری مطالب،
+آموزش‌ها و اخبار حوزه فناوری در یک محیط ساده و سریع است.
+در این سایت می‌توان درباره موبایل، کامپیوتر، گیمینگ،
+امنیت، اینترنت و برنامه‌نویسی مطالب مختلف منتشر کرد.
+</p>
+
+</div>
+
+
+<div class="about-box">
+
+<h3>
+⚡ طراحی سریع
+</h3>
+
+<p>
+این سایت بدون کتابخانه‌های سنگین خارجی ساخته شده تا
+روی گوشی و سیستم‌های مختلف سریع و روان اجرا شود.
+طراحی سایت کاملاً واکنش‌گرا است و با صفحه‌نمایش موبایل
+نیز سازگاری دارد.
 </p>
 
 </div>
@@ -1195,121 +1457,103 @@ AI HUB یک پروژه شخصی برای معرفی ابزارهای هوش مص
 
 <!-- FAQ -->
 
-<section id="faq">
-
-<div class="container">
+<section>
 
 <div class="section-title">
-    <h2>❓ سؤالات متداول</h2>
-    <p>پاسخ چند سؤال مهم</p>
+
+<small>سؤالات متداول</small>
+
+<h2>
+سؤالات TECH HUB
+</h2>
+
 </div>
+
 
 <div class="faq">
 
-    <div class="faq-item">
 
-        <button class="faq-question"
-                onclick="toggleFaq(this)">
-            AI HUB چیست؟
-            <span>＋</span>
-        </button>
+<div class="faq-item">
 
-        <div class="faq-answer">
-            AI HUB یک سایت برای معرفی ابزارها،
-            پرامپت‌ها و منابع مرتبط با هوش مصنوعی است.
-        </div>
+<div class="faq-question" onclick="toggleFAQ(this)">
+TECH HUB درباره چه موضوعاتی است؟
+<span>+</span>
+</div>
 
-    </div>
-
-
-    <div class="faq-item">
-
-        <button class="faq-question"
-                onclick="toggleFaq(this)">
-            آیا استفاده از سایت رایگان است؟
-            <span>＋</span>
-        </button>
-
-        <div class="faq-answer">
-            خود سایت برای مشاهده محتوا رایگان است.
-            بعضی از ابزارهای معرفی‌شده ممکن است
-            شرایط یا محدودیت‌های جداگانه داشته باشند.
-        </div>
-
-    </div>
-
-
-    <div class="faq-item">
-
-        <button class="faq-question"
-                onclick="toggleFaq(this)">
-            چطور از پرامپت‌ها استفاده کنم؟
-            <span>＋</span>
-        </button>
-
-        <div class="faq-answer">
-            روی دکمه «کپی پرامپت» بزن و متن را در
-            ابزار هوش مصنوعی موردنظرت قرار بده.
-        </div>
-
-    </div>
-
-
-    <div class="faq-item">
-
-        <button class="faq-question"
-                onclick="toggleFaq(this)">
-            آیا سایت روی گوشی کار می‌کند؟
-            <span>＋</span>
-        </button>
-
-        <div class="faq-answer">
-            بله. طراحی سایت واکنش‌گرا است و برای
-            گوشی، تبلت و کامپیوتر تنظیم شده است.
-        </div>
-
-    </div>
+<div class="faq-answer">
+موضوعات سایت شامل تکنولوژی، موبایل، کامپیوتر،
+گیمینگ، امنیت، اینترنت، برنامه‌نویسی و آموزش‌های کاربردی است.
+</div>
 
 </div>
+
+
+<div class="faq-item">
+
+<div class="faq-question" onclick="toggleFAQ(this)">
+آیا سایت برای موبایل مناسب است؟
+<span>+</span>
+</div>
+
+<div class="faq-answer">
+بله. طراحی سایت واکنش‌گراست و برای گوشی، تبلت و کامپیوتر تنظیم شده است.
+</div>
+
+</div>
+
+
+<div class="faq-item">
+
+<div class="faq-question" onclick="toggleFAQ(this)">
+آیا می‌توان مطالب جدید اضافه کرد؟
+<span>+</span>
+</div>
+
+<div class="faq-answer">
+بله. محتوای سایت را می‌توان در آینده گسترش داد و بخش‌های
+جدید مثل مقالات، ویدیوها و اخبار روز اضافه کرد.
+</div>
+
+</div>
+
+
+<div class="faq-item">
+
+<div class="faq-question" onclick="toggleFAQ(this)">
+آیا TECH HUB رایگان است؟
+<span>+</span>
+</div>
+
+<div class="faq-answer">
+این نسخه از سایت به صورت استاتیک ساخته شده و برای استفاده
+از امکانات فعلی نیازی به حساب کاربری یا پرداخت ندارد.
+</div>
+
+</div>
+
 
 </div>
 
 </section>
 
 
-<!-- ارتباط -->
+<!-- CONTACT -->
 
-<section id="contact">
+<section>
 
-<div class="container">
+<div class="contact">
 
-<div class="section-title">
-    <h2>📩 ارتباط</h2>
-    <p>AI HUB را دنبال کن</p>
-</div>
-
-<div class="contact-box">
+<h2>
+با TECH HUB همراه باش 🚀
+</h2>
 
 <p>
-برای توسعه پروژه می‌توانی لینک شبکه‌های اجتماعی
-و راه‌های ارتباطی خودت را در این بخش قرار بدهی.
+برای دنبال کردن مطالب جدید تکنولوژی، سایت را ذخیره کن و دوباره سر بزن.
 </p>
 
-<div class="buttons">
-
-<a class="btn btn-red"
-   href="#home">
-   🏠 صفحه اصلی
+<a href="#home" class="btn btn-red">
+بازگشت به بالا
 </a>
-
-<a class="btn"
-   href="#tools">
-   🤖 ابزارها
-</a>
-
-</div>
-
-</div>
 
 </div>
 
@@ -1318,27 +1562,18 @@ AI HUB یک پروژه شخصی برای معرفی ابزارهای هوش مص
 </main>
 
 
-<!-- اعلان -->
-
-<div class="toast" id="toast">
-    انجام شد ✅
-</div>
-
-
 <footer>
 
 <div class="footer-logo">
-    AI HUB
+TECH <span>HUB</span>
 </div>
 
 <div>
-    مرکز ابزارها و ایده‌های هوش مصنوعی
+مرکز تکنولوژی، آموزش و دنیای دیجیتال
 </div>
 
-<br>
-
-<div>
-    © 2026 AI HUB — ساخته شده با ❤️
+<div style="margin-top:10px;">
+© 2026 TECH HUB — تمامی حقوق محفوظ است.
 </div>
 
 </footer>
@@ -1346,224 +1581,123 @@ AI HUB یک پروژه شخصی برای معرفی ابزارهای هوش مص
 
 <script>
 
-/* منوی موبایل */
+/* MOBILE MENU */
 
 function toggleMenu(){
 
-    const nav = document.getElementById("navbar");
-
-    nav.classList.toggle("mobile-open");
-
-}
-
-
-/* حالت روشن و تاریک */
-
-function toggleTheme(){
-
-    document.body.classList.toggle("light");
-
-    const light = document.body.classList.contains("light");
-
-    localStorage.setItem("aihub-theme", light ? "light" : "dark");
-
-    document.getElementById("themeBtn").textContent =
-        light ? "🌙" : "☀️";
-
-}
-
-
-/* ذخیره حالت */
-
-(function(){
-
-    const saved = localStorage.getItem("aihub-theme");
-
-    if(saved === "light"){
-
-        document.body.classList.add("light");
-
-        document.getElementById("themeBtn").textContent = "🌙";
-
-    }
-
-})();
-
-
-/* جستجوی ابزارها */
-
-function searchTools(){
-
-    const query =
-        document.getElementById("searchInput")
-        .value
-        .toLowerCase()
-        .trim();
-
-    const cards =
-        document.querySelectorAll(".tool-card");
-
-    let found = 0;
-
-    cards.forEach(card => {
-
-        const name =
-            card.dataset.name.toLowerCase();
-
-        if(name.includes(query)){
-
-            card.style.display = "";
-
-            found++;
-
-        }else{
-
-            card.style.display = "none";
-
-        }
-
-    });
-
-    document.getElementById("noResults").style.display =
-        found === 0 ? "block" : "none";
-
-}
-
-
-/* فیلتر ابزارها */
-
-function filterTools(category, button){
-
-    document
-        .querySelectorAll(".filter")
-        .forEach(btn => btn.classList.remove("active"));
-
-    button.classList.add("active");
-
-    const cards =
-        document.querySelectorAll(".tool-card");
-
-    let found = 0;
-
-    cards.forEach(card => {
-
-        if(category === "all" ||
-           card.dataset.category === category){
-
-            card.style.display = "";
-
-            found++;
-
-        }else{
-
-            card.style.display = "none";
-
-        }
-
-    });
-
-    document.getElementById("searchInput").value = "";
-
-    document.getElementById("noResults").style.display =
-        found === 0 ? "block" : "none";
-
-}
-
-
-/* کپی پرامپت */
-
-function copyPrompt(id){
-
-    const text =
-        document.getElementById(id).innerText.trim();
-
-    navigator.clipboard.writeText(text)
-    .then(() => {
-
-        showToast("پرامپت کپی شد 📋");
-
-    })
-    .catch(() => {
-
-        showToast("کپی انجام نشد");
-
-    });
-
-}
-
-
-/* اعلان */
-
-function showToast(message){
-
-    const toast =
-        document.getElementById("toast");
-
-    toast.textContent = message;
-
-    toast.classList.add("show");
-
-    setTimeout(() => {
-
-        toast.classList.remove("show");
-
-    },2200);
+    document.getElementById("nav").classList.toggle("show");
 
 }
 
 
 /* FAQ */
 
-function toggleFaq(button){
+function toggleFAQ(element){
 
-    const item =
-        button.parentElement;
+    const item = element.parentElement;
 
-    const isOpen =
-        item.classList.contains("open");
-
-    document
-        .querySelectorAll(".faq-item")
-        .forEach(el => {
-
-            el.classList.remove("open");
-
-            const span =
-                el.querySelector(".faq-question span");
-
-            if(span) span.textContent = "＋";
-
-        });
-
-    if(!isOpen){
-
-        item.classList.add("open");
-
-        const span =
-            button.querySelector("span");
-
-        if(span) span.textContent = "−";
-
-    }
+    item.classList.toggle("open");
 
 }
 
 
-/* بستن منوی موبایل بعد از کلیک */
+/* FILTER NEWS */
 
-document
-    .querySelectorAll(".nav-links a")
-    .forEach(link => {
+function filterNews(category,button){
 
-        link.addEventListener("click", () => {
+    const cards = document.querySelectorAll(".news-card");
 
-            document
-                .getElementById("navbar")
-                .classList.remove("mobile-open");
+    document.querySelectorAll(".category").forEach(function(btn){
 
-        });
+        btn.classList.remove("active");
 
     });
+
+    button.classList.add("active");
+
+    cards.forEach(function(card){
+
+        if(category === "all" || card.dataset.category === category){
+
+            card.style.display = "block";
+
+        }else{
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+/* SEARCH */
+
+function searchNews(){
+
+    const search = document
+        .getElementById("search")
+        .value
+        .toLowerCase();
+
+    const cards = document.querySelectorAll(".news-card");
+
+    cards.forEach(function(card){
+
+        const text = card.innerText.toLowerCase();
+
+        if(text.includes(search)){
+
+            card.style.display = "block";
+
+        }else{
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+/* CLOSE MOBILE MENU */
+
+document.querySelectorAll("#nav a").forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+        document.getElementById("nav").classList.remove("show");
+
+    });
+
+});
+
+
+/* SMOOTH SCROLL */
+
+document.querySelectorAll('a[href^="#"]').forEach(function(anchor){
+
+    anchor.addEventListener("click",function(event){
+
+        const target = document.querySelector(
+            this.getAttribute("href")
+        );
+
+        if(target){
+
+            event.preventDefault();
+
+            target.scrollIntoView({
+                behavior:"smooth"
+            });
+
+        }
+
+    });
+
+});
 
 </script>
 
