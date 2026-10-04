@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
+<title>AI HUB | مرکز هوش مصنوعی</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Tahoma,Arial,sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#070707;
+    color:#fff;
+    line-height:1.8;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:min(1100px,92%);
+    margin:auto;
+}
+
+/* Header */
+header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(7,7,7,.96);
+    border-bottom:1px solid #222;
+}
+
+.nav{
+    min-height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+    color:#ff2020;
+}
+
+.logo span{
+    color:#fff;
+}
+
+nav{
+    display:flex;
+    gap:22px;
+}
+
+nav a{
+    color:#bbb;
+    font-size:14px;
+    transition:.2s;
+}
+
+nav a:hover{
+    color:#ff2020;
+}
+
+/* Hero */
+.hero{
+    min-height:650px;
+    display:flex;
+    align-items:center;
+    text-align:center;
+}
+
+.hero-content{
+    width:100%;
+}
+
+.badge{
+    display:inline-block;
+    border:1px solid #ff2020;
+    color:#ff4444;
+    padding:6px 15px;
+    border-radius:30px;
+    font-size:13px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:clamp(38px,8vw,78px);
+    line-height:1.2;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#ff2020;
+}
+
+.hero p{
+    max-width:650px;
+    margin:0 auto 30px;
+    color:#aaa;
+    font-size:17px;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    padding:12px 24px;
+    border-radius:10px;
+    font-weight:bold;
+    border:1px solid #333;
+    transition:.2s;
+}
+
+.btn-red{
+    background:#e50914;
+    border-color:#e50914;
+}
+
+.btn-red:hover{
+    background:#ff2020;
+}
+
+.btn-dark{
+    background:#111;
+}
+
+.btn-dark:hover{
+    border-color:#ff2020;
+}
+
+/* Sections */
+section{
+    padding:80px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.section-title h2{
+    font-size:34px;
+    margin-bottom:8px;
+}
+
+.section-title p{
+    color:#888;
+}
+
+/* Cards */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.card{
+    background:#101010;
+    border:1px solid #222;
+    border-radius:16px;
+    padding:25px;
+    transition:.2s;
+}
+
+.card:hover{
+    border-color:#e50914;
+    transform:translateY(-3px);
+}
+
+.icon{
+    width:50px;
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#1a0808;
+    border:1px solid #431010;
+    border-radius:12px;
+    font-size:24px;
+    margin-bottom:18px;
+}
+
+.card h3{
+    margin-bottom:8px;
+}
+
+.card p{
+    color:#888;
+    font-size:14px;
+}
+
+/* About */
+.about{
+    background:#0b0b0b;
+}
+
+.about-box{
+    max-width:850px;
+    margin:auto;
+    text-align:center;
+    border:1px solid #222;
+    border-radius:18px;
+    padding:35px;
+}
+
+.about-box p{
+    color:#aaa;
+}
+
+/* Stats */
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:35px;
+}
+
+.stat{
+    text-align:center;
+    background:#101010;
+    border:1px solid #222;
+    border-radius:14px;
+    padding:20px;
+}
+
+.stat strong{
+    display:block;
+    color:#ff2020;
+    font-size:30px;
+}
+
+/* Contact */
+.contact{
+    text-align:center;
+}
+
+.contact-box{
+    background:#101010;
+    border:1px solid #222;
+    border-radius:18px;
+    padding:35px;
+    max-width:700px;
+    margin:auto;
+}
+
+.contact-box p{
+    color:#999;
+    margin-bottom:20px;
+}
+
+/* Footer */
+footer{
+    border-top:1px solid #222;
+    padding:25px 0;
+    text-align:center;
+    color:#666;
+    font-size:13px;
+}
+
+/* Mobile */
+@media(max-width:800px){
+    nav{
+        display:none;
+    }
+
+    .hero{
+        min-height:580px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    section{
+        padding:60px 0;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container nav">
+        <div class="logo">AI <span>HUB</span></div>
+
+        <nav>
+            <a href="#home">خانه</a>
+            <a href="#tools">ابزارها</a>
+            <a href="#about">درباره</a>
+            <a href="#contact">ارتباط</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+    <div class="container hero-content">
+
+        <div class="badge">مرکز هوش مصنوعی و تکنولوژی</div>
+
+        <h1>
+            دنیای <span>هوش مصنوعی</span><br>
+            در یک مکان
+        </h1>
+
+        <p>
+            اینجا مجموعه‌ای از ابزارها، ایده‌ها و پروژه‌های جذاب
+            هوش مصنوعی و تکنولوژی را پیدا می‌کنی.
+        </p>
+
+        <div class="buttons">
+            <a class="btn btn-red" href="#tools">شروع کن</a>
+            <a class="btn btn-dark" href="#about">بیشتر بدان</a>
+        </div>
+
+    </div>
+</section>
+
+
+<section id="tools">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>ابزارهای ما</h2>
+            <p>چند بخش برای شروع کار</p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icon">🤖</div>
+                <h3>ابزارهای هوش مصنوعی</h3>
+                <p>
+                    معرفی ابزارهای کاربردی AI برای تولید محتوا،
+                    تصویر، ویدیو و ایده‌های جدید.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">✨</div>
+                <h3>پرامپت‌های آماده</h3>
+                <p>
+                    مجموعه‌ای از پرامپت‌های کاربردی برای گرفتن
+                    نتیجه بهتر از هوش مصنوعی.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🎮</div>
+                <h3>تکنولوژی و گیم</h3>
+                <p>
+                    مطالب و پروژه‌های جذاب درباره تکنولوژی،
+                    موبایل، بازی و دنیای دیجیتال.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="about" id="about">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>درباره AI HUB</h2>
+            <p>ساده، سریع و مدرن</p>
+        </div>
+
+        <div class="about-box">
+
+            <p>
+                AI HUB یک پروژه شخصی برای جمع‌آوری ایده‌ها،
+                ابزارهای هوش مصنوعی و پروژه‌های تکنولوژی است.
+                هدف این سایت این است که امکانات جذاب دنیای دیجیتال
+                را در یک محیط ساده و سریع در اختیار کاربران قرار دهد.
+            </p>
+
+            <div class="stats">
+
+                <div class="stat">
+                    <strong>AI</strong>
+                    هوش مصنوعی
+                </div>
+
+                <div class="stat">
+                    <strong>24/7</strong>
+                    دسترسی
+                </div>
+
+                <div class="stat">
+                    <strong>∞</strong>
+                    ایده‌های جدید
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<section id="contact" class="contact">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>ارتباط با ما</h2>
+            <p>برای پروژه‌های جدید همراه ما باش</p>
+        </div>
+
+        <div class="contact-box">
+
+            <p>
+                این قسمت بعداً می‌تواند به شبکه‌های اجتماعی
+                یا راه‌های ارتباطی تو وصل شود.
+            </p>
+
+            <div class="buttons">
+                <a class="btn btn-red" href="#home">بازگشت به بالا</a>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+
+<footer>
+    © 2026 AI HUB — ساخته شده با ❤️ و تکنولوژی
+</footer>
+
+</body>
+</html>
