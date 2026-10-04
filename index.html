@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080808">
+<meta name="theme-color" content="#090909">
+<meta name="description" content="AI HUB - مرکز ابزارها و پرامپت‌های هوش مصنوعی">
 <title>AI HUB | مرکز هوش مصنوعی</title>
 
 <style>
@@ -11,36 +12,72 @@
     box-sizing:border-box;
     margin:0;
     padding:0;
-    font-family:Tahoma,Arial,sans-serif;
 }
 
 html{
     scroll-behavior:smooth;
 }
 
+:root{
+    --bg:#070707;
+    --card:#101010;
+    --card2:#151515;
+    --text:#fff;
+    --muted:#999;
+    --border:#252525;
+    --red:#ff2020;
+    --red2:#b90000;
+    --green:#25d366;
+}
+
 body{
-    background:#070707;
-    color:#fff;
+    font-family:Tahoma,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
     line-height:1.8;
+    transition:.2s;
+}
+
+body.light{
+    --bg:#f5f5f5;
+    --card:#fff;
+    --card2:#eee;
+    --text:#111;
+    --muted:#666;
+    --border:#ddd;
 }
 
 a{
-    text-decoration:none;
     color:inherit;
+    text-decoration:none;
+}
+
+button,
+input{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
 }
 
 .container{
-    width:min(1100px,92%);
+    width:min(1150px,92%);
     margin:auto;
 }
 
-/* Header */
+/* نوار بالا */
+
 header{
     position:sticky;
     top:0;
-    z-index:100;
+    z-index:1000;
     background:rgba(7,7,7,.96);
-    border-bottom:1px solid #222;
+    border-bottom:1px solid var(--border);
+}
+
+body.light header{
+    background:rgba(255,255,255,.96);
 }
 
 .nav{
@@ -52,36 +89,64 @@ header{
 }
 
 .logo{
-    font-size:24px;
-    font-weight:bold;
-    color:#ff2020;
+    font-size:25px;
+    font-weight:900;
+    color:var(--red);
+    white-space:nowrap;
 }
 
 .logo span{
-    color:#fff;
+    color:var(--text);
 }
 
-nav{
+.nav-links{
     display:flex;
+    align-items:center;
     gap:22px;
 }
 
-nav a{
-    color:#bbb;
+.nav-links a{
+    color:var(--muted);
     font-size:14px;
     transition:.2s;
 }
 
-nav a:hover{
-    color:#ff2020;
+.nav-links a:hover{
+    color:var(--red);
 }
 
-/* Hero */
+.theme-btn{
+    width:40px;
+    height:40px;
+    border-radius:10px;
+    border:1px solid var(--border);
+    background:var(--card);
+    color:var(--text);
+    font-size:18px;
+}
+
+/* منوی موبایل */
+
+.mobile-menu{
+    display:none;
+    width:40px;
+    height:40px;
+    border:1px solid var(--border);
+    background:var(--card);
+    color:var(--text);
+    border-radius:10px;
+    font-size:20px;
+}
+
+/* هیرو */
+
 .hero{
     min-height:650px;
     display:flex;
     align-items:center;
     text-align:center;
+    position:relative;
+    overflow:hidden;
 }
 
 .hero-content{
@@ -90,72 +155,100 @@ nav a:hover{
 
 .badge{
     display:inline-block;
-    border:1px solid #ff2020;
-    color:#ff4444;
-    padding:6px 15px;
+    padding:7px 16px;
+    border:1px solid #591010;
+    color:#ff5555;
+    background:#160707;
     border-radius:30px;
     font-size:13px;
-    margin-bottom:20px;
+    margin-bottom:22px;
 }
 
 .hero h1{
-    font-size:clamp(38px,8vw,78px);
+    font-size:clamp(40px,8vw,78px);
     line-height:1.2;
-    margin-bottom:20px;
+    margin-bottom:22px;
 }
 
 .hero h1 span{
-    color:#ff2020;
+    color:var(--red);
 }
 
 .hero p{
-    max-width:650px;
+    max-width:700px;
     margin:0 auto 30px;
-    color:#aaa;
+    color:var(--muted);
     font-size:17px;
 }
 
 .buttons{
     display:flex;
     justify-content:center;
-    gap:12px;
+    align-items:center;
     flex-wrap:wrap;
+    gap:12px;
 }
 
 .btn{
-    display:inline-block;
+    border:1px solid var(--border);
+    border-radius:11px;
     padding:12px 24px;
-    border-radius:10px;
+    background:var(--card);
+    color:var(--text);
     font-weight:bold;
-    border:1px solid #333;
     transition:.2s;
 }
 
+.btn:hover{
+    border-color:var(--red);
+}
+
 .btn-red{
-    background:#e50914;
-    border-color:#e50914;
+    background:var(--red);
+    border-color:var(--red);
+    color:#fff;
 }
 
 .btn-red:hover{
-    background:#ff2020;
+    background:#d90000;
 }
 
-.btn-dark{
-    background:#111;
+.btn-small{
+    padding:8px 13px;
+    font-size:12px;
 }
 
-.btn-dark:hover{
-    border-color:#ff2020;
+/* آمار */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+    margin-top:45px;
 }
 
-/* Sections */
+.stat{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:18px;
+}
+
+.stat strong{
+    display:block;
+    color:var(--red);
+    font-size:27px;
+}
+
+/* بخش‌ها */
+
 section{
     padding:80px 0;
 }
 
 .section-title{
     text-align:center;
-    margin-bottom:40px;
+    margin-bottom:38px;
 }
 
 .section-title h2{
@@ -164,143 +257,379 @@ section{
 }
 
 .section-title p{
-    color:#888;
+    color:var(--muted);
 }
 
-/* Cards */
-.cards{
+/* جستجو */
+
+.search-box{
+    max-width:750px;
+    margin:0 auto 25px;
+    position:relative;
+}
+
+.search-box input{
+    width:100%;
+    padding:16px 20px;
+    background:var(--card);
+    border:1px solid var(--border);
+    color:var(--text);
+    border-radius:13px;
+    outline:none;
+    font-size:15px;
+}
+
+.search-box input:focus{
+    border-color:var(--red);
+}
+
+/* فیلتر */
+
+.filters{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:30px;
+}
+
+.filter{
+    padding:8px 15px;
+    border-radius:30px;
+    border:1px solid var(--border);
+    background:var(--card);
+    color:var(--muted);
+}
+
+.filter.active,
+.filter:hover{
+    background:var(--red);
+    border-color:var(--red);
+    color:#fff;
+}
+
+/* کارت ابزارها */
+
+.tools-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:18px;
+    gap:17px;
 }
 
-.card{
-    background:#101010;
-    border:1px solid #222;
+.tool-card{
+    background:var(--card);
+    border:1px solid var(--border);
     border-radius:16px;
-    padding:25px;
+    padding:22px;
     transition:.2s;
 }
 
-.card:hover{
-    border-color:#e50914;
+.tool-card:hover{
+    border-color:var(--red);
     transform:translateY(-3px);
 }
 
-.icon{
-    width:50px;
-    height:50px;
+.tool-icon{
+    width:52px;
+    height:52px;
+    border-radius:13px;
+    background:#1a0707;
+    border:1px solid #421010;
     display:flex;
     align-items:center;
     justify-content:center;
-    background:#1a0808;
-    border:1px solid #431010;
-    border-radius:12px;
-    font-size:24px;
-    margin-bottom:18px;
+    font-size:25px;
+    margin-bottom:15px;
 }
 
-.card h3{
-    margin-bottom:8px;
+.tool-card h3{
+    margin-bottom:7px;
 }
 
-.card p{
-    color:#888;
-    font-size:14px;
+.tool-card p{
+    color:var(--muted);
+    font-size:13px;
+    min-height:58px;
 }
 
-/* About */
-.about{
+.tool-footer{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:8px;
+    margin-top:17px;
+}
+
+.tag{
+    color:#ff5555;
+    font-size:11px;
+}
+
+/* پرامپت */
+
+.prompt-section{
     background:#0b0b0b;
 }
 
+body.light .prompt-section{
+    background:#ededed;
+}
+
+.prompt-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.prompt-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:22px;
+}
+
+.prompt-card h3{
+    margin-bottom:12px;
+}
+
+.prompt-text{
+    background:#080808;
+    border:1px solid #222;
+    border-radius:10px;
+    padding:15px;
+    color:#bbb;
+    font-size:13px;
+    direction:ltr;
+    text-align:left;
+    margin-bottom:15px;
+}
+
+body.light .prompt-text{
+    background:#f1f1f1;
+    color:#444;
+    border-color:#ddd;
+}
+
+/* قابلیت‌ها */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:17px;
+}
+
+.feature{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:25px;
+}
+
+.feature-icon{
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.feature p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* درباره */
+
 .about-box{
-    max-width:850px;
+    max-width:900px;
     margin:auto;
     text-align:center;
-    border:1px solid #222;
+    background:var(--card);
+    border:1px solid var(--border);
     border-radius:18px;
     padding:35px;
 }
 
 .about-box p{
-    color:#aaa;
+    color:var(--muted);
 }
 
-/* Stats */
-.stats{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
-    margin-top:35px;
-}
+/* FAQ */
 
-.stat{
-    text-align:center;
-    background:#101010;
-    border:1px solid #222;
-    border-radius:14px;
-    padding:20px;
-}
-
-.stat strong{
-    display:block;
-    color:#ff2020;
-    font-size:30px;
-}
-
-/* Contact */
-.contact{
-    text-align:center;
-}
-
-.contact-box{
-    background:#101010;
-    border:1px solid #222;
-    border-radius:18px;
-    padding:35px;
-    max-width:700px;
+.faq{
+    max-width:850px;
     margin:auto;
 }
 
-.contact-box p{
-    color:#999;
-    margin-bottom:20px;
+.faq-item{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:12px;
+    margin-bottom:10px;
+    overflow:hidden;
 }
 
-/* Footer */
-footer{
-    border-top:1px solid #222;
-    padding:25px 0;
-    text-align:center;
-    color:#666;
+.faq-question{
+    width:100%;
+    background:none;
+    color:var(--text);
+    border:0;
+    padding:17px;
+    text-align:right;
+    font-size:14px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.faq-answer{
+    display:none;
+    padding:0 17px 17px;
+    color:var(--muted);
     font-size:13px;
 }
 
-/* Mobile */
-@media(max-width:800px){
-    nav{
+.faq-item.open .faq-answer{
+    display:block;
+}
+
+/* تماس */
+
+.contact-box{
+    max-width:750px;
+    margin:auto;
+    text-align:center;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:35px;
+}
+
+.contact-box p{
+    color:var(--muted);
+    margin-bottom:20px;
+}
+
+/* اعلان */
+
+.toast{
+    position:fixed;
+    left:20px;
+    bottom:20px;
+    background:#151515;
+    border:1px solid #333;
+    color:#fff;
+    padding:13px 18px;
+    border-radius:10px;
+    opacity:0;
+    pointer-events:none;
+    transform:translateY(10px);
+    transition:.2s;
+    z-index:9999;
+    font-size:13px;
+}
+
+.toast.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* فوتر */
+
+footer{
+    border-top:1px solid var(--border);
+    padding:30px 0;
+    text-align:center;
+    color:var(--muted);
+    font-size:13px;
+}
+
+.footer-logo{
+    font-size:23px;
+    font-weight:bold;
+    color:var(--red);
+    margin-bottom:8px;
+}
+
+/* موبایل */
+
+@media(max-width:850px){
+
+    .nav-links{
         display:none;
     }
 
-    .hero{
-        min-height:580px;
+    .mobile-menu{
+        display:block;
     }
 
-    .cards{
-        grid-template-columns:1fr;
+    .nav.mobile-open .nav-links{
+        display:flex;
+        position:absolute;
+        top:70px;
+        right:0;
+        left:0;
+        padding:15px 4%;
+        background:var(--bg);
+        border-bottom:1px solid var(--border);
+        flex-direction:column;
+        align-items:stretch;
+        gap:0;
+    }
+
+    .nav.mobile-open .nav-links a{
+        padding:12px;
+        border-bottom:1px solid var(--border);
     }
 
     .stats{
-        grid-template-columns:1fr;
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .tools-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .features{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:600px){
+
+    .hero{
+        min-height:600px;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .hero p{
+        font-size:14px;
     }
 
     section{
         padding:60px 0;
     }
 
-    .hero p{
-        font-size:15px;
+    .section-title h2{
+        font-size:28px;
+    }
+
+    .tools-grid,
+    .features,
+    .prompt-grid{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .stat{
+        padding:14px;
+    }
+
+    .stat strong{
+        font-size:23px;
     }
 }
 </style>
@@ -309,159 +638,934 @@ footer{
 <body>
 
 <header>
-    <div class="container nav">
-        <div class="logo">AI <span>HUB</span></div>
+<div class="container nav" id="navbar">
 
-        <nav>
-            <a href="#home">خانه</a>
-            <a href="#tools">ابزارها</a>
-            <a href="#about">درباره</a>
-            <a href="#contact">ارتباط</a>
-        </nav>
+    <a href="#home" class="logo">
+        AI <span>HUB</span>
+    </a>
+
+    <nav class="nav-links">
+        <a href="#home">خانه</a>
+        <a href="#tools">ابزارها</a>
+        <a href="#prompts">پرامپت‌ها</a>
+        <a href="#features">امکانات</a>
+        <a href="#faq">سؤالات</a>
+        <a href="#contact">ارتباط</a>
+    </nav>
+
+    <div style="display:flex;gap:8px;">
+        <button class="theme-btn" id="themeBtn" onclick="toggleTheme()">☀️</button>
+        <button class="mobile-menu" onclick="toggleMenu()">☰</button>
     </div>
+
+</div>
 </header>
+
 
 <main>
 
+<!-- خانه -->
+
 <section class="hero" id="home">
-    <div class="container hero-content">
 
-        <div class="badge">مرکز هوش مصنوعی و تکنولوژی</div>
+<div class="container hero-content">
 
-        <h1>
-            دنیای <span>هوش مصنوعی</span><br>
-            در یک مکان
-        </h1>
+    <div class="badge">
+        🚀 مرکز ابزارها و ایده‌های هوش مصنوعی
+    </div>
 
-        <p>
-            اینجا مجموعه‌ای از ابزارها، ایده‌ها و پروژه‌های جذاب
-            هوش مصنوعی و تکنولوژی را پیدا می‌کنی.
-        </p>
+    <h1>
+        آینده با <span>هوش مصنوعی</span><br>
+        از اینجا شروع می‌شود
+    </h1>
 
-        <div class="buttons">
-            <a class="btn btn-red" href="#tools">شروع کن</a>
-            <a class="btn btn-dark" href="#about">بیشتر بدان</a>
+    <p>
+        ابزارهای کاربردی، پرامپت‌های آماده، ایده‌های خلاقانه
+        و منابع هوش مصنوعی را در یک محیط ساده و سریع پیدا کن.
+    </p>
+
+    <div class="buttons">
+        <a href="#tools" class="btn btn-red">
+            🤖 مشاهده ابزارها
+        </a>
+
+        <a href="#prompts" class="btn">
+            ✨ پرامپت‌ها
+        </a>
+    </div>
+
+    <div class="stats">
+
+        <div class="stat">
+            <strong>20+</strong>
+            ابزار و سرویس
+        </div>
+
+        <div class="stat">
+            <strong>50+</strong>
+            ایده و پرامپت
+        </div>
+
+        <div class="stat">
+            <strong>100%</strong>
+            رایگان برای شروع
+        </div>
+
+        <div class="stat">
+            <strong>24/7</strong>
+            دسترسی آنلاین
         </div>
 
     </div>
+
+</div>
+
 </section>
 
+
+<!-- ابزارها -->
 
 <section id="tools">
-    <div class="container">
 
-        <div class="section-title">
-            <h2>ابزارهای ما</h2>
-            <p>چند بخش برای شروع کار</p>
+<div class="container">
+
+<div class="section-title">
+    <h2>🤖 ابزارهای هوش مصنوعی</h2>
+    <p>ابزار موردنظرت را جست‌وجو و پیدا کن</p>
+</div>
+
+<div class="search-box">
+    <input
+        id="searchInput"
+        type="search"
+        placeholder="🔍 جست‌وجوی ابزار... مثلا تصویر، ویدیو، متن"
+        oninput="searchTools()"
+    >
+</div>
+
+<div class="filters">
+
+    <button class="filter active" onclick="filterTools('all',this)">
+        همه
+    </button>
+
+    <button class="filter" onclick="filterTools('image',this)">
+        🎨 تصویر
+    </button>
+
+    <button class="filter" onclick="filterTools('video',this)">
+        🎬 ویدیو
+    </button>
+
+    <button class="filter" onclick="filterTools('text',this)">
+        ✍️ متن
+    </button>
+
+    <button class="filter" onclick="filterTools('audio',this)">
+        🎙️ صدا
+    </button>
+
+</div>
+
+
+<div class="tools-grid" id="toolsGrid">
+
+    <article class="tool-card" data-category="text" data-name="chatgpt متن هوش مصنوعی">
+
+        <div class="tool-icon">🤖</div>
+
+        <h3>ChatGPT</h3>
+
+        <p>
+            برای نوشتن، ایده‌پردازی، یادگیری، برنامه‌نویسی
+            و کارهای مختلف با هوش مصنوعی.
+        </p>
+
+        <div class="tool-footer">
+            <span class="tag">متن و AI</span>
+
+            <a class="btn btn-small btn-red"
+               href="https://chatgpt.com/"
+               target="_blank">
+                ورود
+            </a>
         </div>
 
-        <div class="cards">
+    </article>
 
-            <div class="card">
-                <div class="icon">🤖</div>
-                <h3>ابزارهای هوش مصنوعی</h3>
-                <p>
-                    معرفی ابزارهای کاربردی AI برای تولید محتوا،
-                    تصویر، ویدیو و ایده‌های جدید.
-                </p>
-            </div>
 
-            <div class="card">
-                <div class="icon">✨</div>
-                <h3>پرامپت‌های آماده</h3>
-                <p>
-                    مجموعه‌ای از پرامپت‌های کاربردی برای گرفتن
-                    نتیجه بهتر از هوش مصنوعی.
-                </p>
-            </div>
+    <article class="tool-card" data-category="image" data-name="تصویر میدجرنی midjourney">
 
-            <div class="card">
-                <div class="icon">🎮</div>
-                <h3>تکنولوژی و گیم</h3>
-                <p>
-                    مطالب و پروژه‌های جذاب درباره تکنولوژی،
-                    موبایل، بازی و دنیای دیجیتال.
-                </p>
-            </div>
+        <div class="tool-icon">🎨</div>
 
+        <h3>Midjourney</h3>
+
+        <p>
+            تولید تصاویر خلاقانه و هنری با استفاده از
+            دستورات متنی.
+        </p>
+
+        <div class="tool-footer">
+            <span class="tag">تصویر</span>
+
+            <a class="btn btn-small btn-red"
+               href="https://www.midjourney.com/"
+               target="_blank">
+                ورود
+            </a>
         </div>
 
-    </div>
+    </article>
+
+
+    <article class="tool-card" data-category="image" data-name="تصویر adobe firefly">
+
+        <div class="tool-icon">🔥</div>
+
+        <h3>Adobe Firefly</h3>
+
+        <p>
+            مجموعه ابزارهای هوش مصنوعی Adobe برای
+            ساخت و ویرایش محتوای تصویری.
+        </p>
+
+        <div class="tool-footer">
+            <span class="tag">تصویر</span>
+
+            <a class="btn btn-small btn-red"
+               href="https://firefly.adobe.com/"
+               target="_blank">
+                ورود
+            </a>
+        </div>
+
+    </article>
+
+
+    <article class="tool-card" data-category="video" data-name="ویدیو runway">
+
+        <div class="tool-icon">🎬</div>
+
+        <h3>Runway</h3>
+
+        <p>
+            ابزارهای هوش مصنوعی برای ساخت ویدیو و
+            تولید محتوای تصویری.
+        </p>
+
+        <div class="tool-footer">
+            <span class="tag">ویدیو</span>
+
+            <a class="btn btn-small btn-red"
+               href="https://runwayml.com/"
+               target="_blank">
+                ورود
+            </a>
+        </div>
+
+    </article>
+
+
+    <article class="tool-card" data-category="video" data-name="ویدیو higgsfield">
+
+        <div class="tool-icon">🎥</div>
+
+        <h3>Higgsfield</h3>
+
+        <p>
+            ساخت ویدیوهای خلاقانه و محتوای تصویری
+            با ابزارهای هوش مصنوعی.
+        </p>
+
+        <div class="tool-footer">
+            <span class="tag">ویدیو</span>
+
+            <a class="btn btn-small btn-red"
+               href="https://higgsfield.ai/"
+               target="_blank">
+                ورود
+            </a>
+        </div>
+
+    </article>
+
+
+    <article class="tool-card" data-category="audio" data-name="صدا elevenlabs">
+
+        <div class="tool-icon">🎙️</div>
+
+        <h3>ElevenLabs</h3>
+
+        <p>
+            ابزارهای هوش مصنوعی برای تولید و پردازش
+            صدا و گفتار.
+        </p>
+
+        <div class="tool-footer">
+            <span class="tag">صدا</span>
+
+            <a class="btn btn-small btn-red"
+               href="https://elevenlabs.io/"
+               target="_blank">
+                ورود
+            </a>
+        </div>
+
+    </article>
+
+
+    <article class="tool-card" data-category="text" data-name="متن claude">
+
+        <div class="tool-icon">🧠</div>
+
+        <h3>Claude</h3>
+
+        <p>
+            دستیار هوش مصنوعی برای نوشتن، تحلیل،
+            یادگیری و کار با متن.
+        </p>
+
+        <div class="tool-footer">
+            <span class="tag">متن</span>
+
+            <a class="btn btn-small btn-red"
+               href="https://claude.ai/"
+               target="_blank">
+                ورود
+            </a>
+        </div>
+
+    </article>
+
+
+    <article class="tool-card" data-category="image" data-name="تصویر canva">
+
+        <div class="tool-icon">🖼️</div>
+
+        <h3>Canva</h3>
+
+        <p>
+            طراحی گرافیکی و تولید محتوای تصویری
+            با امکانات هوش مصنوعی.
+        </p>
+
+        <div class="tool-footer">
+            <span class="tag">طراحی</span>
+
+            <a class="btn btn-small btn-red"
+               href="https://www.canva.com/"
+               target="_blank">
+                ورود
+            </a>
+        </div>
+
+    </article>
+
+
+    <article class="tool-card" data-category="text" data-name="متن gemini گوگل">
+
+        <div class="tool-icon">✨</div>
+
+        <h3>Google Gemini</h3>
+
+        <p>
+            دستیار هوش مصنوعی گوگل برای پرسش،
+            ایده‌پردازی و کارهای مختلف.
+        </p>
+
+        <div class="tool-footer">
+            <span class="tag">AI</span>
+
+            <a class="btn btn-small btn-red"
+               href="https://gemini.google.com/"
+               target="_blank">
+                ورود
+            </a>
+        </div>
+
+    </article>
+
+</div>
+
+<p id="noResults"
+style="display:none;text-align:center;color:var(--muted);margin-top:25px;">
+    😕 ابزار موردنظر پیدا نشد.
+</p>
+
+</div>
+
 </section>
 
 
-<section class="about" id="about">
-    <div class="container">
+<!-- پرامپت‌ها -->
 
-        <div class="section-title">
-            <h2>درباره AI HUB</h2>
-            <p>ساده، سریع و مدرن</p>
+<section id="prompts" class="prompt-section">
+
+<div class="container">
+
+<div class="section-title">
+    <h2>✨ پرامپت‌های آماده</h2>
+    <p>پرامپت را کپی کن و در ابزار هوش مصنوعی استفاده کن</p>
+</div>
+
+
+<div class="prompt-grid">
+
+    <div class="prompt-card">
+
+        <h3>🎨 پرامپت تصویر حرفه‌ای</h3>
+
+        <div class="prompt-text" id="prompt1">
+Create a highly detailed cinematic portrait,
+dramatic lighting, realistic skin texture,
+professional photography, 4K, sharp focus,
+dark background, cinematic composition.
         </div>
 
-        <div class="about-box">
-
-            <p>
-                AI HUB یک پروژه شخصی برای جمع‌آوری ایده‌ها،
-                ابزارهای هوش مصنوعی و پروژه‌های تکنولوژی است.
-                هدف این سایت این است که امکانات جذاب دنیای دیجیتال
-                را در یک محیط ساده و سریع در اختیار کاربران قرار دهد.
-            </p>
-
-            <div class="stats">
-
-                <div class="stat">
-                    <strong>AI</strong>
-                    هوش مصنوعی
-                </div>
-
-                <div class="stat">
-                    <strong>24/7</strong>
-                    دسترسی
-                </div>
-
-                <div class="stat">
-                    <strong>∞</strong>
-                    ایده‌های جدید
-                </div>
-
-            </div>
-
-        </div>
+        <button class="btn btn-red btn-small"
+                onclick="copyPrompt('prompt1')">
+            📋 کپی پرامپت
+        </button>
 
     </div>
+
+
+    <div class="prompt-card">
+
+        <h3>🎬 پرامپت ویدیویی</h3>
+
+        <div class="prompt-text" id="prompt2">
+Create a cinematic 10-second video,
+smooth camera movement, realistic lighting,
+high detail, natural motion, professional
+composition, realistic environment.
+        </div>
+
+        <button class="btn btn-red btn-small"
+                onclick="copyPrompt('prompt2')">
+            📋 کپی پرامپت
+        </button>
+
+    </div>
+
+
+    <div class="prompt-card">
+
+        <h3>📝 پرامپت تولید محتوا</h3>
+
+        <div class="prompt-text" id="prompt3">
+Create a short social media post about artificial
+intelligence. Make it engaging, simple,
+modern and suitable for teenagers.
+        </div>
+
+        <button class="btn btn-red btn-small"
+                onclick="copyPrompt('prompt3')">
+            📋 کپی پرامپت
+        </button>
+
+    </div>
+
+
+    <div class="prompt-card">
+
+        <h3>💡 پرامپت ایده‌پردازی</h3>
+
+        <div class="prompt-text" id="prompt4">
+Give me 20 creative content ideas about AI,
+technology and gaming. Make each idea unique,
+short and suitable for social media videos.
+        </div>
+
+        <button class="btn btn-red btn-small"
+                onclick="copyPrompt('prompt4')">
+            📋 کپی پرامپت
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
 </section>
 
 
-<section id="contact" class="contact">
-    <div class="container">
+<!-- امکانات -->
 
-        <div class="section-title">
-            <h2>ارتباط با ما</h2>
-            <p>برای پروژه‌های جدید همراه ما باش</p>
-        </div>
+<section id="features">
 
-        <div class="contact-box">
+<div class="container">
 
-            <p>
-                این قسمت بعداً می‌تواند به شبکه‌های اجتماعی
-                یا راه‌های ارتباطی تو وصل شود.
-            </p>
+<div class="section-title">
+    <h2>⚡ امکانات AI HUB</h2>
+    <p>ساخته شده برای استفاده سریع و ساده</p>
+</div>
 
-            <div class="buttons">
-                <a class="btn btn-red" href="#home">بازگشت به بالا</a>
-            </div>
+<div class="features">
 
+    <div class="feature">
+        <div class="feature-icon">🔎</div>
+        <h3>جست‌وجوی سریع</h3>
+        <p>
+            ابزارهای مختلف را با جست‌وجوی سریع پیدا کن.
+        </p>
+    </div>
+
+    <div class="feature">
+        <div class="feature-icon">📱</div>
+        <h3>کاملاً موبایلی</h3>
+        <p>
+            سایت برای صفحه گوشی و کامپیوتر طراحی شده است.
+        </p>
+    </div>
+
+    <div class="feature">
+        <div class="feature-icon">⚡</div>
+        <h3>سبک و سریع</h3>
+        <p>
+            از افکت‌های سنگین و کتابخانه‌های غیرضروری استفاده نشده.
+        </p>
+    </div>
+
+    <div class="feature">
+        <div class="feature-icon">🌙</div>
+        <h3>حالت تاریک و روشن</h3>
+        <p>
+            ظاهر سایت را با یک دکمه تغییر بده.
+        </p>
+    </div>
+
+    <div class="feature">
+        <div class="feature-icon">📋</div>
+        <h3>کپی پرامپت</h3>
+        <p>
+            پرامپت‌ها را با یک کلیک کپی کن.
+        </p>
+    </div>
+
+    <div class="feature">
+        <div class="feature-icon">🔗</div>
+        <h3>دسترسی مستقیم</h3>
+        <p>
+            با دکمه ورود مستقیماً به ابزار موردنظر برو.
+        </p>
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- درباره -->
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+    <h2>🧠 درباره AI HUB</h2>
+    <p>یک پروژه برای دنیای هوش مصنوعی</p>
+</div>
+
+<div class="about-box">
+
+<p>
+AI HUB یک پروژه شخصی برای معرفی ابزارهای هوش مصنوعی،
+پرامپت‌ها و ایده‌های خلاقانه است.
+هدف این سایت این است که کاربران بتوانند ابزارهای مختلف
+را سریع‌تر پیدا کنند و از آن‌ها برای یادگیری و تولید محتوا
+استفاده کنند.
+</p>
+
+<br>
+
+<p>
+این سایت به‌صورت ساده، سریع و مناسب موبایل طراحی شده است.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FAQ -->
+
+<section id="faq">
+
+<div class="container">
+
+<div class="section-title">
+    <h2>❓ سؤالات متداول</h2>
+    <p>پاسخ چند سؤال مهم</p>
+</div>
+
+<div class="faq">
+
+    <div class="faq-item">
+
+        <button class="faq-question"
+                onclick="toggleFaq(this)">
+            AI HUB چیست؟
+            <span>＋</span>
+        </button>
+
+        <div class="faq-answer">
+            AI HUB یک سایت برای معرفی ابزارها،
+            پرامپت‌ها و منابع مرتبط با هوش مصنوعی است.
         </div>
 
     </div>
+
+
+    <div class="faq-item">
+
+        <button class="faq-question"
+                onclick="toggleFaq(this)">
+            آیا استفاده از سایت رایگان است؟
+            <span>＋</span>
+        </button>
+
+        <div class="faq-answer">
+            خود سایت برای مشاهده محتوا رایگان است.
+            بعضی از ابزارهای معرفی‌شده ممکن است
+            شرایط یا محدودیت‌های جداگانه داشته باشند.
+        </div>
+
+    </div>
+
+
+    <div class="faq-item">
+
+        <button class="faq-question"
+                onclick="toggleFaq(this)">
+            چطور از پرامپت‌ها استفاده کنم؟
+            <span>＋</span>
+        </button>
+
+        <div class="faq-answer">
+            روی دکمه «کپی پرامپت» بزن و متن را در
+            ابزار هوش مصنوعی موردنظرت قرار بده.
+        </div>
+
+    </div>
+
+
+    <div class="faq-item">
+
+        <button class="faq-question"
+                onclick="toggleFaq(this)">
+            آیا سایت روی گوشی کار می‌کند؟
+            <span>＋</span>
+        </button>
+
+        <div class="faq-answer">
+            بله. طراحی سایت واکنش‌گرا است و برای
+            گوشی، تبلت و کامپیوتر تنظیم شده است.
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ارتباط -->
+
+<section id="contact">
+
+<div class="container">
+
+<div class="section-title">
+    <h2>📩 ارتباط</h2>
+    <p>AI HUB را دنبال کن</p>
+</div>
+
+<div class="contact-box">
+
+<p>
+برای توسعه پروژه می‌توانی لینک شبکه‌های اجتماعی
+و راه‌های ارتباطی خودت را در این بخش قرار بدهی.
+</p>
+
+<div class="buttons">
+
+<a class="btn btn-red"
+   href="#home">
+   🏠 صفحه اصلی
+</a>
+
+<a class="btn"
+   href="#tools">
+   🤖 ابزارها
+</a>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
 </main>
 
 
+<!-- اعلان -->
+
+<div class="toast" id="toast">
+    انجام شد ✅
+</div>
+
+
 <footer>
-    © 2026 AI HUB — ساخته شده با ❤️ و تکنولوژی
+
+<div class="footer-logo">
+    AI HUB
+</div>
+
+<div>
+    مرکز ابزارها و ایده‌های هوش مصنوعی
+</div>
+
+<br>
+
+<div>
+    © 2026 AI HUB — ساخته شده با ❤️
+</div>
+
 </footer>
+
+
+<script>
+
+/* منوی موبایل */
+
+function toggleMenu(){
+
+    const nav = document.getElementById("navbar");
+
+    nav.classList.toggle("mobile-open");
+
+}
+
+
+/* حالت روشن و تاریک */
+
+function toggleTheme(){
+
+    document.body.classList.toggle("light");
+
+    const light = document.body.classList.contains("light");
+
+    localStorage.setItem("aihub-theme", light ? "light" : "dark");
+
+    document.getElementById("themeBtn").textContent =
+        light ? "🌙" : "☀️";
+
+}
+
+
+/* ذخیره حالت */
+
+(function(){
+
+    const saved = localStorage.getItem("aihub-theme");
+
+    if(saved === "light"){
+
+        document.body.classList.add("light");
+
+        document.getElementById("themeBtn").textContent = "🌙";
+
+    }
+
+})();
+
+
+/* جستجوی ابزارها */
+
+function searchTools(){
+
+    const query =
+        document.getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const cards =
+        document.querySelectorAll(".tool-card");
+
+    let found = 0;
+
+    cards.forEach(card => {
+
+        const name =
+            card.dataset.name.toLowerCase();
+
+        if(name.includes(query)){
+
+            card.style.display = "";
+
+            found++;
+
+        }else{
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+    document.getElementById("noResults").style.display =
+        found === 0 ? "block" : "none";
+
+}
+
+
+/* فیلتر ابزارها */
+
+function filterTools(category, button){
+
+    document
+        .querySelectorAll(".filter")
+        .forEach(btn => btn.classList.remove("active"));
+
+    button.classList.add("active");
+
+    const cards =
+        document.querySelectorAll(".tool-card");
+
+    let found = 0;
+
+    cards.forEach(card => {
+
+        if(category === "all" ||
+           card.dataset.category === category){
+
+            card.style.display = "";
+
+            found++;
+
+        }else{
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+    document.getElementById("searchInput").value = "";
+
+    document.getElementById("noResults").style.display =
+        found === 0 ? "block" : "none";
+
+}
+
+
+/* کپی پرامپت */
+
+function copyPrompt(id){
+
+    const text =
+        document.getElementById(id).innerText.trim();
+
+    navigator.clipboard.writeText(text)
+    .then(() => {
+
+        showToast("پرامپت کپی شد 📋");
+
+    })
+    .catch(() => {
+
+        showToast("کپی انجام نشد");
+
+    });
+
+}
+
+
+/* اعلان */
+
+function showToast(message){
+
+    const toast =
+        document.getElementById("toast");
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+    setTimeout(() => {
+
+        toast.classList.remove("show");
+
+    },2200);
+
+}
+
+
+/* FAQ */
+
+function toggleFaq(button){
+
+    const item =
+        button.parentElement;
+
+    const isOpen =
+        item.classList.contains("open");
+
+    document
+        .querySelectorAll(".faq-item")
+        .forEach(el => {
+
+            el.classList.remove("open");
+
+            const span =
+                el.querySelector(".faq-question span");
+
+            if(span) span.textContent = "＋";
+
+        });
+
+    if(!isOpen){
+
+        item.classList.add("open");
+
+        const span =
+            button.querySelector("span");
+
+        if(span) span.textContent = "−";
+
+    }
+
+}
+
+
+/* بستن منوی موبایل بعد از کلیک */
+
+document
+    .querySelectorAll(".nav-links a")
+    .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            document
+                .getElementById("navbar")
+                .classList.remove("mobile-open");
+
+        });
+
+    });
+
+</script>
 
 </body>
 </html>
